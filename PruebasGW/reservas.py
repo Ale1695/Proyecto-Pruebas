@@ -20,7 +20,7 @@ def crear_reserva(nombre, vuelo_id, asientos):
             total = v["precio"] * asientos
             reserva = {
                 "cliente": nombre,
-                "vuelo": vuelo_id,  # 👈 IMPORTANTE: debe llamarse 'vuelo'
+                "vuelo": vuelo_id, 
                 "asientos": asientos,
                 "total": total
             }
@@ -31,9 +31,9 @@ def crear_reserva(nombre, vuelo_id, asientos):
 def cancelar_reserva(nombre):
     for r in reservas:
         if r["cliente"] == nombre:
-            # 🔍 Buscar el vuelo asociado a la reserva
+            # Busca el vuelo asociado a la reserva
             for v in vuelos:
-                if v["id"] == r["vuelo"]:  # asegúrate que la clave sea "vuelo"
+                if v["id"] == r["vuelo"]:  
                     v["asientos"] += r["asientos"]  # ✅ devolver asientos
                     break
             reservas.remove(r)
@@ -43,4 +43,5 @@ def cancelar_reserva(nombre):
 
 def obtener_reservas():
     return reservas
+
         
